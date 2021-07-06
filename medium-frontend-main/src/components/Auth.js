@@ -205,14 +205,14 @@ export const StyleWrapper = styled.div`
   align-items:${props => (props.center ? "center" : "flex-start")};
 
   .signIn__block-card{
-  width: 25%;
+  width: 45%;
   height: 60%;
   text-align: center;
 }
 
 .welcome_head{
   font-family: headFont;
-  font-size: 22px;
+  font-size: 32px;
 }
 
 .close-icon{
@@ -221,10 +221,11 @@ export const StyleWrapper = styled.div`
   font-weight:10px;
   opacity: 0.4;
   cursor:pointer;
+  font-size: 24px;
 }
 
 .auth-description{
-  font-size: 10px;
+  font-size: 14px;
   margin-bottom: 25px;
   color:rgba(41, 41, 41, 1);
   font-weight:500;
@@ -234,18 +235,18 @@ export const StyleWrapper = styled.div`
 
 
 .button_format1, .button_format2{
-  width: 150px;
-  height: 30px;
+  width: 250px;
+  height: 50px;
   border-radius: 30px;
   border-style: solid;
   border-width: 0.5px;
   border-color:#767676;
-  font-size: 10px;
+  font-size: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
   display: inline-block;
-  padding-top:7px;
+  padding-top:15px;
   font-family: allFont;
   margin-bottom: 10px;
   color:rgba(41, 41, 41, 1);
@@ -269,7 +270,7 @@ export const StyleWrapper = styled.div`
 
 .signIn_footer_text{
   margin-top:15px;
-  font-size: 10px;
+  font-size: 14px;
   color:rgba(41, 41, 41, 1);
   font-weight:500;
   letter-spacing: 0.5px;
@@ -283,7 +284,7 @@ export const StyleWrapper = styled.div`
 
 
 label{
-  font-size: 8px;
+  font-size: 12px;
   font-weight:lighter;
   color: rgba(41, 41, 41, 1);
   margin-bottom:15px;
@@ -294,9 +295,9 @@ input{
   border:none;
   outline:none;
   border-bottom:solid 0.5px rgba(41, 41, 41, 0.4);
-  margin:15px 0px 15px 0px;
+  margin:18px 0px 18px 0px;
   background-color: transparent;
-  font-size: 11px;
+  font-size: 16px;
   color: rgba(41, 41, 41, 1);
   width:70%;
 }

@@ -24,7 +24,7 @@ const StyleWrapper = styled.div`
   align-items: center;
   padding-left:10px;
   padding-right: 10px;
-  height: 50px;
+  height: 80px;
   width: 100%;
   position: relative;
   background-color: ${(props) => (props.color ? props.color : "#fff")};
@@ -33,8 +33,8 @@ const StyleWrapper = styled.div`
   border-bottom: solid #000 0.5px;
 
   .appLogo{
-  width: 300px;
-  height: 18px;
+  width: 600px;
+  height: 28px;
   position: relative;
 }
 
@@ -46,7 +46,7 @@ const StyleWrapper = styled.div`
 }
 
 .header_menus{
-  font-size: 10px;
+  font-size: 14px;
   margin-right: 20px;
   cursor:pointer;
 }
@@ -59,11 +59,11 @@ const StyleWrapper = styled.div`
 .header__button{
   transition: all 1s ease-in;
   background-color:${(props) => (props.color ? '#161616 ' : "#1A8917")};
-  padding:8px 12px 8px 12px;
+  padding:12px 18px 12px 18px;
   border-radius: 30px;
   color:white;
   border:none;
-  font-size: 10px;
+  font-size: 14px;
   cursor:pointer;
 }  
 `
