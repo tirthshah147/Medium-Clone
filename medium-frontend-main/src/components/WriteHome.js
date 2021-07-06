@@ -1,12 +1,11 @@
 import Header from "./Header";
 import HeroComponent from "./Hero_component";
-import img from './images/home_page_header_img.png';
+import homeImg from './images/write_page_header_img.png';
 
 import React,{useState,useEffect} from 'react';
-import Auth from './Auth';
 
-function Homepage() {
-  const [auth, setAuth] = useState(false);
+
+function WriteHome() {
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {
@@ -19,16 +18,12 @@ function Homepage() {
 
   return (
     <>
-      {auth ? (
-        <Auth setAuth={setAuth}/>
-      ) : (
-        <>
-            <Header color={offset < 400 ? "#C4E2FF" : null} setAuth={setAuth}/>
+            <Header color={offset < 400 ? "#F24D2E" : null} currpage='writeHome'/>
             <HeroComponent 
-            color="#C4E2FF" 
-            title="Medium is a place to write, read, and connect"
-            subTitle="It's easy and free to post your thinking on any topic and connect with millions of readers."
-            image={img}
+            color="#F24D2E" 
+            title="Set your ideas in motion."
+            subTitle="If you have a story to tell, knowledge to share, or a perspective to offer — welcome home. Here, you can publish, grow, and earn, all in a network supported by millions of readers — not ads."
+            image={homeImg}
             />
             <div>
               Homepage Content
@@ -194,10 +189,7 @@ function Homepage() {
               Homepage Content
             </div>
         </>
-      )}
-      
-    </>
-  )
+      )
 }
 
-export default Homepage;
+export default WriteHome;

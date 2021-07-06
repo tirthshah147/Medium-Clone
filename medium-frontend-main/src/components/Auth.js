@@ -2,8 +2,9 @@ import React from 'react';
 import { useState } from 'react/cjs/react.development';
 import styled from 'styled-components';
 import { postData } from './helperFunctions/getData';
+import { withRouter } from 'react-router-dom';
 
-export default function SignIn({setAuth}) {
+function SignIn({setAuth}) {
   const [ signInState, setSignInState] = useState(true);
   const [ userAuth, setUserAuth] = useState(false);
   const [ activateMail, setActivateMail] = useState(false);
@@ -195,6 +196,8 @@ export default function SignIn({setAuth}) {
     </StyleWrapper>
   )
 }
+
+export default withRouter(SignIn);
 
 export const StyleWrapper = styled.div`
   height: 100vh;

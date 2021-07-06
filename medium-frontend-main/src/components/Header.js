@@ -1,17 +1,31 @@
 import React from 'react';
 import Logo from './images/mediumlogo.png';
 import styled from 'styled-components';
+import { withRouter } from 'react-router-dom';
 
-function Header({color,setAuth}) {
+
+function Header({color,setAuth,history,currpage}) {
   return (
     <StyleWrapper color={color}>
-      <div className="appLogo"><img src={Logo} alt="Medium Clone Logo" className="png"/></div>
+      <div className="appLogo">
+        <img src={Logo} alt="Medium Clone Logo" className="png" onClick={() => history.push('/')}/>
+      </div>
+
       <div className='header_menus__block'>
-        <div className="header_menus">Our story</div>
-        <div className="header_menus">Membership</div>
-        <div className="header_menus">Write</div>
-        <div className="header_menus" onClick={() => setAuth(true)}>Sign In</div>
-        <button className="header__button" onClick={() => setAuth(true)}>Get started</button>
+        <div className={currpage === "ourStory" ? "header_menus--selected" : "header_menus"}>Our story</div>
+
+        <div className={currpage === "membership" ? "header_menus--selected" : "header_menus"}>Membership</div>
+
+        <div 
+        className={currpage === "writeHome" ? "header_menus--selected" : "header_menus"}
+        onClick={() => history.push('/creator-tools')}
+        >
+          Write
+        </div>
+
+        <div className="header_menus" onClick={() => (setAuth ? setAuth(true) : history.push('/auth'))}>Sign In</div>
+
+        <button className="header__button" onClick={() => (setAuth ? setAuth(true) : history.push('/auth'))}>Get started</button>
       </div>
     </StyleWrapper>
   )
@@ -19,11 +33,11 @@ function Header({color,setAuth}) {
 
 const StyleWrapper = styled.div`
   display: flex;
-  transition: all 1s ease-in;
-  justify-content: space-around;
+  transition: all 0.5s ease-in;
+  justify-content: space-between;
   align-items: center;
-  padding-left:10px;
-  padding-right: 10px;
+  padding-left:130px;
+  padding-right: 130px;
   height: 80px;
   width: 100%;
   position: relative;
@@ -31,11 +45,15 @@ const StyleWrapper = styled.div`
   position: sticky;
   top:0;
   border-bottom: solid #000 0.5px;
+  z-index:53;
 
   .appLogo{
   width: 600px;
   height: 28px;
   position: relative;
+}
+.appLogo .png{
+  cursor: pointer;
 }
 
 .header_menus__block{
@@ -45,7 +63,7 @@ const StyleWrapper = styled.div`
   justify-content: space-between;
 }
 
-.header_menus{
+.header_menus,.header_menus--selected{
   font-size: 14px;
   margin-right: 20px;
   cursor:pointer;
@@ -54,6 +72,7 @@ const StyleWrapper = styled.div`
 
 .header_menus--selected{
   text-decoration: underline;
+
 }
 
 .header__button{
@@ -70,6 +89,6 @@ const StyleWrapper = styled.div`
 
 
 
-export default Header;
+export default withRouter(Header);
 
 
