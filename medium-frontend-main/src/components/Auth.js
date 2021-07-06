@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import { postData } from './helperFunctions/getData';
 import { withRouter } from 'react-router-dom';
 
-function SignIn({setAuth}) {
+function SignIn({setAuth, location, history}) {
+  console.log(location);
   const [ signInState, setSignInState] = useState(true);
   const [ userAuth, setUserAuth] = useState(false);
   const [ activateMail, setActivateMail] = useState(false);
@@ -34,7 +35,8 @@ function SignIn({setAuth}) {
       if (response.status === 200) {
         console.log("LogIn Successfull");
         localStorage.setItem('token', resp.data);
-        alert(resp.message);
+        {(location.state && location.state.from) ? 
+          history.push(location.state.from.pathname) : history.push('/dashboard')}
       }else{
         alert(resp.message);
       }

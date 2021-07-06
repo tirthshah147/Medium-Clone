@@ -1,7 +1,9 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
-export default function Hero_component({color,title,subTitle,image}) {
+
+function Hero_component({color,title,subTitle,image,history}) {
   return (
     <StyleWrapper color={color}>
       <div className='hero__title'>
@@ -9,7 +11,7 @@ export default function Hero_component({color,title,subTitle,image}) {
        <span>
         {subTitle}
        </span>
-       <button className='buttontype3'>Start Writing</button>
+       <button className='buttontype3' onClick={() => history.push('/new-story')}>Start Writing</button>
       </div>
 
       <div className='hero__image'>
@@ -18,6 +20,8 @@ export default function Hero_component({color,title,subTitle,image}) {
     </StyleWrapper>
   )
 }
+
+export default withRouter( Hero_component);
 
 
 const StyleWrapper = styled.div`
