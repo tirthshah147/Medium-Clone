@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Joi = require('joi');
 const jwt = require('jsonwebtoken');
+const {Tag} = require('./tags');
 
 
 const userSchema = mongoose.Schema({
@@ -22,7 +23,11 @@ const userSchema = mongoose.Schema({
     required:true,
     minlength:8,
     maxlength:1024
-  }
+  },
+  tags:[{type:mongoose.Schema.Types.ObjectId, ref:"Tag"}],
+  followers:[{type:mongoose.Schema.Types.ObjectId, ref:"User"}],
+  followings:[{type:mongoose.Schema.Types.ObjectId, ref:"User"}]
+  
 }, {timestamps : true});
 
 userSchema.methods.generateAuthToken = function(){
