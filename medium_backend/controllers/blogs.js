@@ -34,3 +34,15 @@ exports.getAllBlogs = async(req,res) => {
   return res.send({message:"Blogs fetched succesfully", data : blogs});
 }
 
+exports.getUserBlogs = async(req,res) =>{
+  console.log(req.body);
+  const {userId} = req.body;
+  let blogs = await Blog
+                    .find({author: userId})
+                    .populate('author','name _id')
+                    .populate('tags','name')
+                    .sort({updatedAt:-1});
+                    
+  res.send({message:"All blogs are here!", data:blogs})
+}
+

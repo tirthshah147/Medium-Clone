@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const Joi = require('joi');
 const jwt = require('jsonwebtoken');
 const {Tag} = require('./tags');
+const {Blog} = require('./blogs');
 
 
 const userSchema = mongoose.Schema({
@@ -26,7 +27,15 @@ const userSchema = mongoose.Schema({
   },
   tags:[{type:mongoose.Schema.Types.ObjectId, ref:"Tag"}],
   followers:[{type:mongoose.Schema.Types.ObjectId, ref:"User"}],
-  followings:[{type:mongoose.Schema.Types.ObjectId, ref:"User"}]
+  followings:[{type:mongoose.Schema.Types.ObjectId, ref:"User"}],
+  readerList:[{type:mongoose.Schema.Types.ObjectId, ref:"Blog"}],
+  profileImage:{
+    type:"String"
+  },
+  username:{
+    type:"String",
+    unique:true
+  }
   
 }, {timestamps : true});
 
